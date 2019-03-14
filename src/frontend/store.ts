@@ -10,10 +10,21 @@ export interface IHotel {
     facilities: string[];
 }
 
-export interface IAppState {
+export type IResultsState = {
+    hotels: IHotel[];
+    validFilters: string[];
 }
 
-export const DEFAULT_STATE: IAppState = {};
+export interface IAppState {
+    results: IResultsState;
+}
+
+export const DEFAULT_STATE: IAppState = {
+    results: {
+        hotels:       [],
+        validFilters: []
+    }
+};
 
 export default createStore(
     reducers,
