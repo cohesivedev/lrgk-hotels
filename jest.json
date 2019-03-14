@@ -13,6 +13,8 @@
     "!src/frontend/reducers/index.ts",
     "!src/frontend/index.tsx",
     "!src/frontend/store.ts",
+    "!src/frontend/remote.ts",
+    "!src/frontend/jest/*",
     "!node_modules/**",
     "!**/*.d.ts"
   ],
@@ -20,6 +22,9 @@
   "coverageReporters": [
     "text",
     "html"
+  ],
+  "snapshotSerializers": [
+    "./src/frontend/jest/serializeHTML.ts"
   ],
   "transform": {
     ".(ts|tsx)": "ts-jest"

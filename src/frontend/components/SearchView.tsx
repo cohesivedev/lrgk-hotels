@@ -1,9 +1,11 @@
 import * as React from 'react';
+import {ChangeEventHandler} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import {IAppState, IHotel} from '../store';
 import {getHotels} from '../actions/results';
+import {byAscendingStarRating, byDescendingStarRating} from '../helpers';
 
 import RatingSorter from './RatingSorter';
 import ResultItem from './ResultItem';
@@ -19,12 +21,12 @@ interface ISearchViewStateProps {
 }
 
 interface ISearchViewState {
-    items: IHotel[];
+    isSortAscending: boolean;
 }
 
 class SearchView extends React.Component<ISearchViewProps & ISearchViewStateProps> {
     state: ISearchViewState = {
-        items: this.props.hotels
+        isSortAscending: true
     };
 
     componentWillMount(): void {
@@ -35,15 +37,21 @@ class SearchView extends React.Component<ISearchViewProps & ISearchViewStateProp
         }
     }
 
+    onChangeRatingSort: ChangeEventHandler<HTMLSelectElement> = e => {
+        this.setState({isSortAscending: e.currentTarget.value === 'ascending'});
+    };
+
     render(): React.ReactNode {
-        const {hotels} = this.props;
+        const {hotels}          = this.props;
+        const {isSortAscending} = this.state;
 
         const results = hotels
+            .sort(isSortAscending ? byAscendingStarRating : byDescendingStarRating)
             .map(ResultItem);
 
         return <>
             <FacilitiesFilter/>
-            <RatingSorter/>
+            <RatingSorter isAscending={isSortAscending} onChange={this.onChangeRatingSort}/>
             <table>
                 <tbody>
                 <tr>

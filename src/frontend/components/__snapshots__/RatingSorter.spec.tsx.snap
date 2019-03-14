@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/RatingSorter should match snapshot for ascending 1`] = `
+<html>
+
+<div data-reactroot>
+  <label for="rating-sorter">
+    Sort star rating by
+    <select id="rating-sorter">
+      <option selected
+              value="ascending"
+      >
+        Low to High (Ascending)
+      </option>
+      <option value="descending">
+        High to Low (Descending)
+      </option>
+    </select>
+  </label>
+</div>
+
+</html>
+`;
+
+exports[`components/RatingSorter should match snapshot for descending 1`] = `
+<html>
+
+<div data-reactroot>
+  <label for="rating-sorter">
+    Sort star rating by
+    <select id="rating-sorter">
+      <option value="ascending">
+        Low to High (Ascending)
+      </option>
+      <option selected
+              value="descending"
+      >
+        High to Low (Descending)
+      </option>
+    </select>
+  </label>
+</div>
+
+</html>
+`;
