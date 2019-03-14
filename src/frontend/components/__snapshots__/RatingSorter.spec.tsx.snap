@@ -1,7 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components/RatingSorter should match snapshot for ascending 1`] = `
-<html>
 
 <div data-reactroot>
   <label for="rating-sorter">
@@ -19,11 +18,9 @@ exports[`components/RatingSorter should match snapshot for ascending 1`] = `
   </label>
 </div>
 
-</html>
 `;
 
 exports[`components/RatingSorter should match snapshot for descending 1`] = `
-<html>
 
 <div data-reactroot>
   <label for="rating-sorter">
@@ -41,5 +38,4 @@ exports[`components/RatingSorter should match snapshot for descending 1`] = `
   </label>
 </div>
 
-</html>
 `;

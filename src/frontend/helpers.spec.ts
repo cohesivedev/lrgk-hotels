@@ -1,4 +1,4 @@
-import {byAscendingStarRating, byDescendingStarRating} from './helpers';
+import {byAscendingStarRating, byDescendingStarRating, isSuperset} from './helpers';
 
 describe('helpers', () => {
     const lowStarRatingHotel  = {starRating: 1};
@@ -16,5 +16,13 @@ describe('helpers', () => {
         expect(byDescendingStarRating(highStarRatingHotel, lowStarRatingHotel)).toBeLessThan(0);
 
         expect(byDescendingStarRating(lowStarRatingHotel, lowStarRatingHotel)).toBe(0);
+    });
+
+    it('isSuperset() should return only true if second arg is a non-strict subset of first arg', () => {
+        expect(isSuperset(new Set([1, 2, 3]), new Set([1, 2, 3]))).toBe(true);
+        expect(isSuperset(new Set([1, 2, 3]), new Set([1, 3]))).toBe(true);
+        expect(isSuperset(new Set([1, 2, 3]), new Set([]))).toBe(true);
+
+        expect(isSuperset(new Set([1, 2, 3]), new Set([1, 2, 3, 4]))).toBe(false);
     });
 });

@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reducers/results reducing GET_RESULTS_HOTELS actions returns a state matching the snapshot 1`] = `
+Object {
+  "hotels": Array [
+    Object {
+      "facilities": Array [
+        "a",
+        "b",
+        "c",
+      ],
+      "name": "foo",
+      "starRating": 1,
+    },
+    Object {
+      "facilities": Array [
+        "a",
+        "c",
+      ],
+      "name": "bar",
+      "starRating": 5,
+    },
+    Object {
+      "facilities": Array [
+        "x",
+        "y",
+        "z",
+      ],
+      "name": "foobar",
+      "starRating": 2,
+    },
+    Object {
+      "facilities": Array [
+        "a",
+        "x",
+        "c",
+      ],
+      "name": "fizz",
+      "starRating": 3,
+    },
+    Object {
+      "facilities": Array [
+        "b",
+        "y",
+        "e",
+      ],
+      "name": "buzz",
+      "starRating": 4,
+    },
+  ],
+  "validFilters": Array [
+    "a",
+    "b",
+    "c",
+    "x",
+    "y",
+    "z",
+    "e",
+  ],
+}
+`;

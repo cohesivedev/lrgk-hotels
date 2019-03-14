@@ -1,5 +1,17 @@
-import {IResultsState} from '../store';
+import {IHotel, IResultsState} from '../store';
 import {ResultsAction, ResultsActionTypes} from '../actions/results';
+
+export function getValidFilters(payload: IHotel[]): string[] {
+    const validFilters = new Set();
+
+    payload!
+        .forEach(hotel => {
+            hotel.facilities
+                .forEach(f => validFilters.add(f));
+        });
+
+    return Array.from(validFilters);
+}
 
 export default function (state: IResultsState, action: ResultsAction): IResultsState {
     let resultsState = {...state};
@@ -12,7 +24,7 @@ export default function (state: IResultsState, action: ResultsAction): IResultsS
             resultsState = {
                 ...resultsState,
                 hotels:       payload!,
-                validFilters: [] // todo: put all valid facility filters in here, computed and stored once per fetch
+                validFilters: getValidFilters(payload!)
             };
             break;
 

@@ -1,10 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components/SearchView should match snapshot 1`] = `
-<html>
 
 <div>
-  facilities filter stub
 </div>
 <div>
   <label for="rating-sorter">
@@ -34,37 +32,7 @@ exports[`components/SearchView should match snapshot 1`] = `
         Facilities
       </th>
     </tr>
-    <tr>
-      <td>
-        bar
-      </td>
-      <td>
-        2
-      </td>
-      <td>
-        <div>
-          b
-        </div>
-        <div>
-          c
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        foo
-      </td>
-      <td>
-        5
-      </td>
-      <td>
-        <div>
-          a
-        </div>
-      </td>
-    </tr>
   </tbody>
 </table>
 
-</html>
 `;
