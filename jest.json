@@ -24,7 +24,8 @@
     "html"
   ],
   "snapshotSerializers": [
-    "./src/frontend/jest/serializeHTML.ts"
+    "./src/frontend/jest/serializeHTML.ts",
+    "./src/frontend/jest/serializeCSS.ts"
   ],
   "transform": {
     ".(ts|tsx)": "ts-jest"

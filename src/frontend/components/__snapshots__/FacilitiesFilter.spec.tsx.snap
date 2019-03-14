@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/FacilitiesFilter should match snapshot 1`] = `
+
+<div data-reactroot>
+  <label>
+    A
+    <input type="checkbox"
+           data-filter="A"
+           checked
+    >
+  </label>
+  <label>
+    B
+    <input type="checkbox"
+           data-filter="B"
+    >
+  </label>
+  <label>
+    C
+    <input type="checkbox"
+           data-filter="C"
+           checked
+    >
+  </label>
+</div>
+
+`;

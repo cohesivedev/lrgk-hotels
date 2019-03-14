@@ -31,6 +31,25 @@ class SearchView extends React.Component<ISearchViewProps & ISearchViewStateProp
         filters:         []
     };
 
+    onChangeFilters: ChangeEventHandler<HTMLInputElement> = e => {
+        const filter           = e.currentTarget.getAttribute('data-filter')!;
+        const shouldBeIncluded = e.currentTarget.checked;
+
+        const filters = [...this.state.filters];
+
+        if (shouldBeIncluded) {
+            filters.push(filter);
+        } else {
+            filters.splice(filters.indexOf(filter), 1);
+        }
+
+        this.setState({filters});
+    };
+
+    onChangeRatingSort: ChangeEventHandler<HTMLSelectElement> = e => {
+        this.setState({isSortAscending: e.currentTarget.value === 'ascending'});
+    };
+
     componentWillMount(): void {
         const {hotels, getHotels} = this.props;
 
@@ -39,15 +58,11 @@ class SearchView extends React.Component<ISearchViewProps & ISearchViewStateProp
         }
     }
 
-    onChangeRatingSort: ChangeEventHandler<HTMLSelectElement> = e => {
-        this.setState({isSortAscending: e.currentTarget.value === 'ascending'});
-    };
-
     render(): React.ReactNode {
-        const {hotels, validFilters} = this.props;
-        const {isSortAscending}      = this.state;
+        const {validFilters, hotels}     = this.props;
+        const {filters, isSortAscending} = this.state;
 
-        const filtersSet = new Set(['pool', 'gym']);
+        const filtersSet = new Set(filters);
 
         const results = hotels
             .filter(h => isSuperset(new Set(h.facilities), filtersSet))
@@ -55,8 +70,12 @@ class SearchView extends React.Component<ISearchViewProps & ISearchViewStateProp
             .map(ResultItem);
 
         return <>
-            <FacilitiesFilter filters={validFilters}/>
-            <RatingSorter isAscending={isSortAscending} onChange={this.onChangeRatingSort}/>
+            <FacilitiesFilter
+                validFilters={validFilters}
+                activeFilters={filters}
+                onChange={this.onChangeFilters}
+            />
+            <RatingSorter onChange={this.onChangeRatingSort} isAscending={isSortAscending}/>
             <table>
                 <tbody>
                 <tr>
