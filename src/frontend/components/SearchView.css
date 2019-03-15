@@ -1,0 +1,20 @@
+.ResultTable {
+    margin-top: 1em;
+    width: 100%;
+}
+
+.ResultTable .Count {
+    padding: 1em;
+    color:white;
+    background-color: #444444;
+}
+
+.ResultTable tr:nth-child(2n) {
+    background-color: #eeeeee;
+}
+
+.ResultTable td {
+    padding: 1em;
+    vertical-align: top;
+}
+

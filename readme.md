@@ -35,3 +35,8 @@ the happy path
 This project can also run its mock API on the Heroku PaaS, just create a new
 pipeline, add an app and point the pipeline to this repo, the `Procfile` is
 preset and ready to use. 
+
+## Notes
+
+- Would be better using a CSS-in-JS lib
+- UI design could be better, focus is around showing real React/Redux code 

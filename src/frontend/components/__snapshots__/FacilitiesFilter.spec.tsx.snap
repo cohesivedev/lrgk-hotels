@@ -2,27 +2,37 @@
 
 exports[`components/FacilitiesFilter should match snapshot 1`] = `
 
-<div data-reactroot>
-  <label>
+<div class="FacilitiesFilter"
+     data-reactroot
+>
+  <div>
+    Show me hotels that include
+  </div>
+  <label class="selected">
     A
     <input type="checkbox"
            data-filter="A"
            checked
     >
   </label>
-  <label>
+  <label class>
     B
     <input type="checkbox"
            data-filter="B"
     >
   </label>
-  <label>
+  <label class="selected">
     C
     <input type="checkbox"
            data-filter="C"
            checked
     >
   </label>
+  <div class="actions">
+    <button>
+      Clear all
+    </button>
+  </div>
 </div>
 
 `;

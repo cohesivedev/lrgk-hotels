@@ -1,9 +1,9 @@
 {
   "name": "laterooms-fe-kata",
   "scripts": {
-    "build": "parcel build index.html --experimental-scope-hoisting --no-source-maps --out-dir hosted",
+    "build": "cp dotenv .env ; parcel build index.html --experimental-scope-hoisting --no-source-maps --out-dir hosted",
     "test": "jest --config jest.json",
-    "watch": "parcel index.html --port 3000",
+    "watch": "rm .env ; parcel index.html --port 3000",
     "mock-api": "json-server --port 3001 src/mock-api/index.js"
   },
   "dependencies": {
@@ -11,13 +11,10 @@
     "@types/react": "^16.8.8",
     "@types/react-dom": "^16.8.2",
     "@types/react-redux": "^7.0.3",
-    "css": "^2.2.4",
-    "cssbeautify": "^0.3.1",
     "diffable-html": "^4.0.0",
     "jest": "^24.5.0",
     "json-server": "^0.14.2",
     "parcel-bundler": "^1.12.1",
-    "picostyle": "^2.1.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-redux": "^6.0.1",

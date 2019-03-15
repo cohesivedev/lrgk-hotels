@@ -11,6 +11,8 @@ import RatingSorter from './RatingSorter';
 import ResultItem from './ResultItem';
 import FacilitiesFilter from './FacilitiesFilter';
 
+import './SearchView.css';
+
 interface ISearchViewProps {
     hotels: IHotel[];
     validFilters: string[];
@@ -46,6 +48,8 @@ class SearchView extends React.Component<ISearchViewProps & ISearchViewStateProp
         this.setState({filters});
     };
 
+    onClearFilters = () => this.setState({filters: []});
+
     onChangeRatingSort: ChangeEventHandler<HTMLSelectElement> = e => {
         this.setState({isSortAscending: e.currentTarget.value === 'ascending'});
     };
@@ -67,17 +71,29 @@ class SearchView extends React.Component<ISearchViewProps & ISearchViewStateProp
         const results = hotels
             .filter(h => isSuperset(new Set(h.facilities), filtersSet))
             .sort(isSortAscending ? byAscendingStarRating : byDescendingStarRating)
-            .map(ResultItem);
+            .map(h => (
+                <ResultItem
+                    key={`ResultItem.${h.name}`}
+                    facilities={h.facilities}
+                    name={h.name}
+                    starRating={h.starRating}
+                    filters={filters}
+                />
+            ));
 
         return <>
             <FacilitiesFilter
                 validFilters={validFilters}
                 activeFilters={filters}
                 onChange={this.onChangeFilters}
+                onClickClear={this.onClearFilters}
             />
             <RatingSorter onChange={this.onChangeRatingSort} isAscending={isSortAscending}/>
-            <table>
+            <table className="ResultTable">
                 <tbody>
+                <tr>
+                    <th colSpan={3} className="Count">Found {results.length} hotels!</th>
+                </tr>
                 <tr>
                     <th>Name</th>
                     <th>Star rating</th>

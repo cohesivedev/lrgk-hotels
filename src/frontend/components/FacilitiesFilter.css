@@ -1,0 +1,30 @@
+.FacilitiesFilter {
+    border: 1px solid black;
+    padding: 1em;
+    margin-bottom: 1em;
+    line-height: 1.5em;
+}
+
+.FacilitiesFilter label {
+    margin: 0.5em;
+    padding: 0 1em;
+    display: inline-block;
+    border: 3px solid lightgray;
+}
+
+.FacilitiesFilter input {
+    display: none;
+}
+
+.FacilitiesFilter label.selected {
+    border: 3px solid blue;
+    border-radius: 0.2em;
+}
+
+.FacilitiesFilter .actions {
+    text-align: right;
+}
+
+.FacilitiesFilter .actions button {
+    padding: 1em;
+}

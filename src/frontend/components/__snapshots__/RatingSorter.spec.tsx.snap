@@ -2,9 +2,11 @@
 
 exports[`components/RatingSorter should match snapshot for ascending 1`] = `
 
-<div data-reactroot>
+<div class="RatingSorter"
+     data-reactroot
+>
   <label for="rating-sorter">
-    Sort star rating by
+    Show me hotels by star rating
     <select id="rating-sorter">
       <option selected
               value="ascending"
@@ -22,9 +24,11 @@ exports[`components/RatingSorter should match snapshot for ascending 1`] = `
 
 exports[`components/RatingSorter should match snapshot for descending 1`] = `
 
-<div data-reactroot>
+<div class="RatingSorter"
+     data-reactroot
+>
   <label for="rating-sorter">
-    Sort star rating by
+    Show me hotels by star rating
     <select id="rating-sorter">
       <option value="ascending">
         Low to High (Ascending)
